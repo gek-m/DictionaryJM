@@ -1,6 +1,14 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext.kotlin_version = "1.5.10"
+    ext.retrofitLibVersion = '2.9.0'
+    ext.okhttpLoggingLibVersion = '4.9.1'
+    ext.rxjavaLibVersion = '2.2.20'
+    ext.rxkotlinLibVersion = '2.4.0'
+    ext.rxandroidLibVersion = '2.1.1'
+    ext.daggerLibVersion = '2.37'
+    ext.daggerSupportLibVersion = '2.35.1'
+
     repositories {
         google()
         mavenCentral()

@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -38,6 +39,8 @@ android {
         properties.load(project.rootProject.file("app.properties").newDataInputStream())
         def apiKey = properties.getProperty("api_key", "")
         it.buildConfigField "String", "API_KEY", apiKey
+        def apiUrl = properties.getProperty("api_url", "https://dictionary.yandex.net")
+        it.buildConfigField "String", "API_URL", apiUrl
     }
 }
 
@@ -49,16 +52,23 @@ dependencies {
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
 
-    implementation("com.squareup.okhttp3:logging-interceptor:4.9.1")
-    implementation "com.squareup.retrofit2:retrofit:2.9.0"
-    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:2.9.0"
+    implementation("com.squareup.okhttp3:logging-interceptor:$okhttpLoggingLibVersion")
+    implementation "com.squareup.retrofit2:retrofit:$retrofitLibVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitLibVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitLibVersion"
 
-    implementation "io.reactivex.rxjava2:rxjava:2.2.20"
-    implementation "io.reactivex.rxjava2:rxkotlin:2.4.0"
-    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+    implementation "io.reactivex.rxjava2:rxjava:$rxjavaLibVersion"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rxkotlinLibVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroidLibVersion"
 
-    testImplementation 'junit:junit:4.+'
+    implementation "com.google.dagger:dagger:$daggerLibVersion"
+    implementation "com.google.dagger:dagger-android:$daggerLibVersion"
+    implementation "com.google.dagger:dagger-android-support:$daggerLibVersion"
+
+    kapt "com.google.dagger:dagger-compiler:$daggerLibVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerSupportLibVersion"
+
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }
