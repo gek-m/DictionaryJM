@@ -57,16 +57,13 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofitLibVersion"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitLibVersion"
 
-    implementation "io.reactivex.rxjava2:rxjava:$rxjavaLibVersion"
-    implementation "io.reactivex.rxjava2:rxkotlin:$rxkotlinLibVersion"
-    implementation "io.reactivex.rxjava2:rxandroid:$rxandroidLibVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesLibVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesLibVersion"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
 
-    implementation "com.google.dagger:dagger:$daggerLibVersion"
-    implementation "com.google.dagger:dagger-android:$daggerLibVersion"
-    implementation "com.google.dagger:dagger-android-support:$daggerLibVersion"
-
-    kapt "com.google.dagger:dagger-compiler:$daggerLibVersion"
-    kapt "com.google.dagger:dagger-android-processor:$daggerSupportLibVersion"
+    implementation "io.insert-koin:koin-core:$koinLibversion"
+    implementation "io.insert-koin:koin-android:$koinLibversion"
+    implementation "io.insert-koin:koin-android-compat:$koinLibversion"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

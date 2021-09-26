@@ -1,19 +1,14 @@
 package com.example.dictionaryjm.presentation
 
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
+import androidx.appcompat.app.AppCompatActivity
 import com.example.dictionaryjm.databinding.ActivityMainBinding
-import com.example.dictionaryjm.presentation.abs.AbsActivity
 import com.example.dictionaryjm.presentation.viewmodel.MainActivityViewModel
+import org.koin.android.ext.android.inject
 
-class MainActivity : AbsActivity() {
+class MainActivity : AppCompatActivity() {
 
-    /*@Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory*/
-
-    private val viewModel: MainActivityViewModel by lazy {
-        ViewModelProvider(this).get(MainActivityViewModel::class.java)
-    }
+    private val mainActivityViewModel: MainActivityViewModel by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,12 +16,12 @@ class MainActivity : AbsActivity() {
         val viewBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-        viewModel.liveDataTranslate.observe(this) {
+        mainActivityViewModel.liveDataTranslate.observe(this) {
             viewBinding.textView.text = it
         }
 
         viewBinding.button.setOnClickListener {
-            viewModel.getData(viewBinding.textField.text.toString())
+            mainActivityViewModel.getData(viewBinding.textField.text.toString())
         }
     }
 }

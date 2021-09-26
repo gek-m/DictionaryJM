@@ -1,13 +1,11 @@
 package com.example.dictionaryjm.domain.translate
 
 import com.example.dictionaryjm.domain.translate.datasource.TranslateDataSource
-import io.reactivex.Observable
-import javax.inject.Inject
 
-class TranslateRepoImpl @Inject constructor(
+class TranslateRepoImpl (
     private val cloud: TranslateDataSource
 ): TranslateRepo {
 
-    override fun getTranslate(text: String): Observable<Translate> =
+    override suspend fun getTranslate(text: String): Translate =
         cloud.getTranslate(text)
 }
