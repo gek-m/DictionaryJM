@@ -3,4 +3,7 @@
     <string name="translator_greeting">Hello in translator!</string>
     <string name="btn_translate">Translate</string>
     <string name="input_text_hint">input text</string>
+    <string name="translate_to">Russian</string>
+    <string name="translate_from">English</string>
+    <string name="btn_history_text">history</string>
 </resources>

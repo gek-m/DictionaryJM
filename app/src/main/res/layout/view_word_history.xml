@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/originalWord"
+        android:layout_width="@dimen/default_word_width"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/default_padding"
+        android:textSize="@dimen/default_text_size"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/translatedWord"
+        app:layout_constraintTop_toTopOf="parent"
+        tool:text="English"/>
+
+    <TextView
+        android:id="@+id/translatedWord"
+        android:layout_width="@dimen/default_word_width"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/default_text_size"
+        app:layout_constraintLeft_toRightOf="@id/originalWord"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tool:text="Russian" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

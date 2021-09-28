@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/originalWord"
+        android:layout_width="@dimen/default_word_width"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_padding"
+        android:textSize="@dimen/default_text_size"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/translateWord"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/translate_from"/>
+
+    <TextView
+        android:id="@+id/translateWord"
+        android:layout_width="@dimen/default_word_width"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_padding"
+        android:textSize="@dimen/default_text_size"
+        app:layout_constraintLeft_toRightOf="@id/originalWord"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="@string/translate_to"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/history_records"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/translateWord"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

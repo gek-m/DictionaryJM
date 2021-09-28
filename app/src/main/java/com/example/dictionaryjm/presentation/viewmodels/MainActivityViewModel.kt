@@ -1,19 +1,21 @@
-package com.example.dictionaryjm.presentation.viewmodel
+package com.example.dictionaryjm.presentation.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.dictionaryjm.domain.storage.StorageRepo
 import com.example.dictionaryjm.domain.translate.TranslateRepo
 import kotlinx.coroutines.*
 
 class MainActivityViewModel(
     private var translateRepo: TranslateRepo,
+    private var storageRepo: StorageRepo
 ) : ViewModel() {
 
     private val _liveDataTranslate = MutableLiveData<String>()
 
     private val coroutineScope: CoroutineScope = CoroutineScope(
-        Dispatchers.Main
+        Dispatchers.IO
                 + SupervisorJob()
                 + CoroutineExceptionHandler { _, throwable ->
             onError(throwable)
@@ -34,6 +36,7 @@ class MainActivityViewModel(
                     definition.tr[0].text
                 }
             )
+            storageRepo.insertTranslation(result)
         }
     }
 
@@ -43,6 +46,6 @@ class MainActivityViewModel(
 
     override fun onCleared() {
         super.onCleared()
-        coroutineScope.coroutineContext.cancelChildren()
+        coroutineScope.cancel()
     }
 }
