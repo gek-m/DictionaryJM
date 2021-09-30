@@ -30,17 +30,22 @@ import retrofit2.converter.gson.GsonConverterFactory
 object Di {
 
     fun createModule() = module {
+
+        val client = OkHttpClient.Builder()
+
+        if (BuildConfig.DEBUG) {
+            client.addInterceptor(
+                HttpLoggingInterceptor().apply {
+                    level = HttpLoggingInterceptor.Level.BODY
+                }
+            )
+        }
+
         single<Api> {
             Retrofit.Builder()
                 .baseUrl(BuildConfig.API_URL)
                 .client(
-                    OkHttpClient.Builder()
-                        .addInterceptor(
-                            HttpLoggingInterceptor()
-                                .apply {
-                                    level = HttpLoggingInterceptor.Level.BODY
-                                })
-                        .build()
+                    client.build()
                 )
                 .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
