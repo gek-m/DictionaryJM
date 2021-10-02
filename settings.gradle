@@ -1,2 +1,6 @@
 rootProject.name = "DictionaryJM"
 include ':app'
+include ':historyScreenModule'
+include ':domainModule'
+include ':domainModule'
+include ':storage'

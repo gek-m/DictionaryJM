@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dictionaryjm.databinding.ActivityMainBinding
 import com.example.dictionaryjm.presentation.viewmodels.MainActivityViewModel
+import com.example.historyscreen.presentation.HistoryScreen
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
