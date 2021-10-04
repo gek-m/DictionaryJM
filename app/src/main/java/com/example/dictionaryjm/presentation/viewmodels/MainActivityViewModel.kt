@@ -3,8 +3,8 @@ package com.example.dictionaryjm.presentation.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.dictionaryjm.domain.storage.StorageRepo
-import com.example.dictionaryjm.domain.translate.TranslateRepo
+import com.example.domainModule.TranslateRepo
+import com.example.storage.StorageRepo
 import kotlinx.coroutines.*
 
 class MainActivityViewModel(

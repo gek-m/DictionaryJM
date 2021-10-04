@@ -1,0 +1,5 @@
+<resources>
+    <string name="translate_to">Russian</string>
+    <string name="translate_from">English</string>
+    <string name="btn_history_text">history</string>
+</resources>
