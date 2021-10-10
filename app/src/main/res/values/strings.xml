@@ -6,4 +6,5 @@
     <string name="translate_to">Russian</string>
     <string name="translate_from">English</string>
     <string name="btn_history_text">history</string>
+    <string name="dialog_message_device_is_offline">Device is offline</string>
 </resources>

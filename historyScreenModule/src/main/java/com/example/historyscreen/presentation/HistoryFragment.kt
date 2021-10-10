@@ -3,22 +3,27 @@ package com.example.historyscreen.presentation
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import by.kirich1409.viewbindingdelegate.viewBinding
+//import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.historyscreen.R.layout.fragment_history
 import com.example.historyscreen.adapter.HistoryAdapter
 import com.example.historyscreen.databinding.FragmentHistoryBinding
 import com.example.historyscreen.presentation.viewmodels.HistoryFragmentViewModel
-import org.koin.android.ext.android.inject
+import com.example.historyscreen.viewBinding
+import org.koin.android.ext.android.getKoin
 
 class HistoryFragment : Fragment(fragment_history) {
 
-    private val historyFragmentViewModel: HistoryFragmentViewModel by inject()
+    private val scope = getKoin().createScope<HistoryFragment>()
+
+    private val historyFragmentViewModel: HistoryFragmentViewModel by scope.inject()
 
     companion object {
         fun newInstance(): Fragment = HistoryFragment()
     }
 
-    private val viewBinding: FragmentHistoryBinding by viewBinding()
+    private val viewBinding: FragmentHistoryBinding by viewBinding(
+        FragmentHistoryBinding::bind
+    )
     private val adapter = HistoryAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {

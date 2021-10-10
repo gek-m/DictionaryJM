@@ -4,7 +4,7 @@ import android.app.Application
 import com.example.dictionaryjm.domain.di.koin.Di
 import com.example.domainModule.Di.getApiModule
 import com.example.domainModule.Di.getRepoModule
-import com.example.historyscreen.Di.getHistoryModule
+import com.example.historyscreen.Di.historyScreen
 import com.example.storage.Di.getStorageModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -16,12 +16,12 @@ class AppKoin : Application() {
         startKoin {
             androidContext(this@AppKoin)
             modules(
-                Di.createModule(),
                 Di.navigationModule(),
+                Di.mainScreen,
                 getApiModule(),
                 getRepoModule(),
                 getStorageModule(),
-                getHistoryModule()
+                historyScreen
             )
         }
     }
