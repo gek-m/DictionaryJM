@@ -45,6 +45,8 @@ dependencies {
     implementation(project(":storage"))
     implementation(project(":domainModule"))
 
+    implementation("androidx.core:core-splashscreen:1.0.0-alpha02")
+
     implementation(Kotlin.coreKtx)
     implementation(Kotlin.stdlib)
 
