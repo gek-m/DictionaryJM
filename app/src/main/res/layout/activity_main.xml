@@ -19,6 +19,7 @@
         android:id="@+id/text_input_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="@dimen/default_top_padding"
         android:hint="@string/input_text_hint"
         app:endIconMode="clear_text"
         app:layout_constraintTop_toTopOf="parent">
